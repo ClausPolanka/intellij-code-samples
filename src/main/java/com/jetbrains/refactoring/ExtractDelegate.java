@@ -1,8 +1,7 @@
 package com.jetbrains.refactoring;
 
-/**
- * Created by breandan on 2/9/2015.
- */
+import static java.lang.System.out;
+
 public class ExtractDelegate {
     public static void main(String[] args) {
         String s = "How to extract a delegate: ";
@@ -16,11 +15,11 @@ public class ExtractDelegate {
         steps[3] = "Assign it a visibility";
         steps[4] = "Apply the refactoring";
 
-        System.out.println(s);
+        out.println(s);
 
         //Extract this loop
-        for(String step : steps) {
-            System.out.println(step);
+        for (String step : steps) {
+            out.println(step);
         }
     }
 }

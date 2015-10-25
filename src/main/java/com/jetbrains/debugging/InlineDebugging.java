@@ -5,11 +5,12 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Arrays;
 import java.util.List;
 
+import static java.lang.System.out;
+import static java.util.Arrays.asList;
+import static org.apache.commons.lang3.StringUtils.getJaroWinklerDistance;
+import static org.apache.commons.lang3.StringUtils.getLevenshteinDistance;
 
 
-/**
- * Created by breandan on 4/6/2015.
- */
 public class InlineDebugging {
 
     static class MyList<T> {
@@ -27,13 +28,13 @@ public class InlineDebugging {
     static MyList<String> list;
 
     public static void main(String[] args) {
-        MyList<Integer> list = new MyList<Integer>(Arrays.asList(1, 2, 3));
-        System.out.println(getNthFromLast(list, 2));
+        MyList<Integer> list = new MyList<Integer>(asList(1, 2, 3));
+        out.println(getNthFromLast(list, 2));
 
-        int i = StringUtils.getLevenshteinDistance("intellij", "idea", 3);
-        double j = StringUtils.getJaroWinklerDistance("intellij", "idea");
+        int i = getLevenshteinDistance("intellij", "idea", 3);
+        double j = getJaroWinklerDistance("intellij", "idea");
 
-        System.out.println(i + "," + j);
+        out.println(i + "," + j);
     }
 
     private static <T> T getNthFromLast(MyList<T> list, int n) {

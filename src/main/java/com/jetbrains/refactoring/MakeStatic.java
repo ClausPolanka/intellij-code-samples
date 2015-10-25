@@ -1,8 +1,7 @@
 package com.jetbrains.refactoring;
 
-/**
- * Created by breandan on 2/9/2015.
- */
+import static java.lang.System.out;
+
 public class MakeStatic {
     private String s;
     private int i;
@@ -12,7 +11,7 @@ public class MakeStatic {
      */
     public void printMe() {
         for (int j = 0; j < i; j++) {
-            System.out.println(s);
+            out.println(s);
         }
     }
 }

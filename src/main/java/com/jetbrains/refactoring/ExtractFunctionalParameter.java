@@ -1,8 +1,7 @@
 package com.jetbrains.refactoring;
 
-/**
- * Created by breandan on 2/9/2015.
- */
+import static java.lang.Double.valueOf;
+
 public class ExtractFunctionalParameter {
     public static void main(String[] args) {
         doStuff();
@@ -23,7 +22,7 @@ public class ExtractFunctionalParameter {
     }
 
     public static double stringToDouble(String s) {
-        return Double.valueOf(s);
+        return valueOf(s);
     }
 
     class MyClass {

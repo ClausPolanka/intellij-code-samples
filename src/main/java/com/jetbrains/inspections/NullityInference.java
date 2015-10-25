@@ -2,39 +2,39 @@ package com.jetbrains.inspections;
 
 import com.jetbrains.CallMe;
 
-/**
- * Created by breandan on 2/10/2015.
- */
+import static com.jetbrains.CallMe.*;
+import static java.lang.System.out;
+
 public class NullityInference {
     public void testAnnotationInference(Object nullityUnknown) {
-        if (CallMe.neverReturnsNull() == null) {
+        if (neverReturnsNull() == null) {
             //Condition 'CallMe.neverReturnsNull() == null' is always 'false'.
         }
 
-        if (CallMe.alwaysReturnsSame(new Object()) == null) {
+        if (alwaysReturnsSame(new Object()) == null) {
             //Condition 'CallMe.alwaysReturnsSame(new Object()) == null' is always 'false'.
         }
 
-        if (CallMe.alwaysReturnsSame(null) == null) {
+        if (alwaysReturnsSame(null) == null) {
             //Condition 'CallMe.alwaysReturnsSame(new Object()) == null' is always 'true'.
         }
 
-        if (!CallMe.isNull(nullityUnknown)) {
-            System.out.println(nullityUnknown.toString());
+        if (!isNull(nullityUnknown)) {
+            out.println(nullityUnknown.toString());
             return;
         }
 
-        System.out.println(nullityUnknown.toString());
+        out.println(nullityUnknown.toString());
         //Method invocation 'nullityUnknown.toString()' may produce 'java.lang.NullPointerException'
 
-        System.out.println(nullityUnknown.toString());
+        out.println(nullityUnknown.toString());
 
         //These do not seem to work correctly:
-        System.out.println(CallMe.alwaysReturnsNull().toString());
-        System.out.println(CallMe.sometimesReturnsNull().toString());
+        out.println(alwaysReturnsNull().toString());
+        out.println(sometimesReturnsNull().toString());
 
-        CallMe.alwaysExpectsNull(null);
-        CallMe.neverExpectsNull(null);
+        alwaysExpectsNull(null);
+        neverExpectsNull(null);
         //Passing 'null' argument to parameter annotated as @NotNull (never explicitly annotated)
     }
 }

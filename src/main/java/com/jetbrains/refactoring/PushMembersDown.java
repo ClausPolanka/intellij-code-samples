@@ -1,25 +1,24 @@
 package com.jetbrains.refactoring;
 
-/**
- * Created by breandan on 2/9/2015.
- */
+import static java.lang.System.out;
+
 public class PushMembersDown {
     public class A {
         //Push these members down to subclasses
         public void a() {
-            System.out.println("a");
+            out.println("a");
         }
 
         public void b() {
-            System.out.println("b");
+            out.println("b");
         }
 
         public void c() {
-            System.out.println("c");
+            out.println("c");
         }
 
         public void d() {
-            System.out.println("d");
+            out.println("d");
         }
 
         class B extends A {
